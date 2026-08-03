@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gachapon</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1>Gachapon</h1>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-body">
+          <div class="field">
+            <label for="itemName">Tên vật phẩm</label>
+
+            <div class="search-wrapper">
+              <span class="search-icon" aria-hidden="true">🔍</span>
+
+              <input
+                id="itemName"
+                type="search"
+                placeholder="Nhập tên vật phẩm..."
+                autocomplete="off"
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="basicStat">Chỉ số cơ bản</label>
+            <select id="basicStat"></select>
+          </div>
+
+          <div class="field">
+            <label for="upgrade">Số lần nâng cấp</label>
+            <select id="upgrade"></select>
+          </div>
+
+          <div class="field">
+            <label for="category">Phân loại</label>
+            <select id="category"></select>
+          </div>
+
+          <div class="field">
+            <label for="job">Job</label>
+            <select id="job"></select>
+          </div>
+
+          <div class="field">
+            <label for="machine">Máy xổ số</label>
+            <select id="machine"></select>
+          </div>
+
+          <div class="sidebar-divider"></div>
+
+          <div class="actions">
+            <button
+              id="resetButton"
+              class="action-button button-reset"
+              type="button"
+            >
+              Xóa bộ lọc
+            </button>
+
+            <button
+              id="reloadButton"
+              class="action-button button-reload"
+              type="button"
+            >
+              Tải lại
+            </button>
+          </div>
+
+          <section class="quick-filter">
+            <h2 class="quick-filter-title">Tìm nhanh</h2>
+
+            <div class="quick-group">
+              <button
+                class="quick-chip"
+                type="button"
+                data-filter-type="category"
+                data-filter-value="Scroll"
+              >
+                Scroll
+              </button>
+
+              <button
+                class="quick-chip"
+                type="button"
+                data-filter-type="category"
+                data-filter-value="Equip"
+              >
+                Equip
+              </button>
+
+              <button
+                class="quick-chip"
+                type="button"
+                data-filter-type="stat"
+                data-filter-value="+ATT"
+              >
+                +ATT
+              </button>
+
+              <button
+                class="quick-chip"
+                type="button"
+                data-filter-type="stat"
+                data-filter-value="+M.ATT"
+              >
+                +M.ATT
+              </button>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="content-header">
+          <h2>Kết quả</h2>
+
+          <div id="status" class="result-status">
+            Đang tải dữ liệu...
+          </div>
+        </div>
+
+        <div class="table-card">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th class="column-number">
+                    <div class="header-cell">STT</div>
+                  </th>
+
+                  <th class="column-name">
+                    <div class="header-cell">Tên vật phẩm</div>
+                  </th>
+
+                  <th class="column-stats">
+                    <div class="header-cell">Chỉ số cơ bản</div>
+                  </th>
+
+                  <th class="column-upgrade">
+                    <div class="header-cell">Số lần nâng cấp</div>
+                  </th>
+
+                  <th class="column-requirement">
+                    <div class="header-cell">Yêu cầu</div>
+                  </th>
+
+                  <th class="column-category">
+                    <div class="header-cell">Phân loại</div>
+                  </th>
+
+                  <th class="column-job">
+                    <div class="header-cell">Job</div>
+                  </th>
+
+                  <th class="column-machine">
+                    <div class="header-cell">Máy xổ số</div>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody id="resultBody">
+                <tr>
+                  <td colspan="8" class="message">
+                    Đang tải dữ liệu...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
