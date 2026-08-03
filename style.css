@@ -1333,19 +1333,32 @@ body::-webkit-scrollbar {
 
 
 /* =========================================================
-   FIX KHOẢNG CÁCH — KHÔNG ĐỂ KHUNG TÌM NHANH SÁT MÉP DƯỚI
+   THU NHỎ 4 NÚT TÌM NHANH
    ========================================================= */
 
-.sidebar {
-  height: calc(100% - 10px);
-  align-self: start;
+.sidebar-footer-card .quick-filter {
+  margin-top: 9px;
+  padding-top: 8px;
 }
 
-.sidebar-body {
-  height: 100%;
+.quick-filter-title {
+  margin-bottom: 6px;
 }
 
-/* Giữ khoảng thở nhỏ bên dưới card cuối */
+.quick-group {
+  gap: 5px;
+}
+
+.quick-chip,
+.quick-chip-name {
+  min-height: 21px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 9px;
+  line-height: 1.1;
+}
+
+/* Chừa thêm một khoảng nhỏ phía dưới card */
 .sidebar-footer-card {
-  margin-bottom: 2px;
+  padding-bottom: 8px;
 }
