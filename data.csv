@@ -243,7 +243,7 @@ Giày hoàng hà đen,Tự vào game xem đi,5,Lười ghi bome,Giày,Warrior,Ca
 Giày tướng quân đen,Tự vào game xem đi,5,Lười ghi bome,Giày,Warrior,Cao nguyên du mục
 Giày biển sâu vàng,Tự vào game xem đi,5,Lười ghi bome,Giày,Warrior,Cao nguyên du mục
 Áo choàng hành trình hồng,+ATT,5,LV: 50,Áo choàng,FULL,Cao nguyên du mục
-Áo choàng linh hồn Taru,+ATT,5,LV:80,Áo choàng,Warrior,Cao nguyên du mục
+Áo choàng linh hồn Taru,+ATT,5,LV: 80,Áo choàng,Warrior,Cao nguyên du mục
 Dù màu be,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Cao nguyên du mục
 Đũa lửa,Tự vào game xem đi,7,LV: 70,Vũ khí,Magician,Cao nguyên du mục
 Khiên chiến binh Maple,Tự vào game xem đi,10,LV: 64,Khiên,Warrior,Cao nguyên du mục
@@ -421,7 +421,7 @@ Cuộn giấy áo toàn thân tăng sức mạnh 60%,60%,,,Scroll,,Bến cảng 
 Cuộn giấy khiên tăng sức mạnh 60%,60%,,,Scroll,,Bến cảng cướp biển
 Scroll for Hand Cannon for ATT 60%,60%,,,Scroll,,Bến cảng cướp biển
 Advanced Equip Enhancement Scroll,,,,Scroll,,Bến cảng cướp biển
-Kính quang phổ,Tự vào game xem đi,3,Lười ghi bome,Equip,FULL,Bến cảng cướp biển
+Kính quang phổ,Tự vào game xem đi,3,Lười ghi bome,Mắt kính,FULL,Bến cảng cướp biển
 Mũ đại dương viền vàng,Tự vào game xem đi,7,Lười ghi bome,Mũ,Priate,Bến cảng cướp biển
 Mũ đuôi sam đỏ,Tự vào game xem đi,7,Lười ghi bome,Mũ,Priate,Bến cảng cướp biển
 Red Belly Duke,Tự vào game xem đi,10,Lười ghi bome,Áo toàn thân,Priate,Bến cảng cướp biển
@@ -499,13 +499,13 @@ Cuộn giấy găng tay tăng tấn công vật lý 100%,100%,,,Scroll,,Rừng n
 (Quỷ) Cuộn giấy áo toàn thân tăng sức mạnh 30%,30%,,,Scroll,,Rừng ngủ say
 (Quỷ) Cuộn giấy giày tăng khéo léo 30%,30%,,,Scroll,,Rừng ngủ say
 (Quỷ) Cuộn giấy áo tăng sức mạnh 10%,10%,,,Scroll,,Rừng ngủ say
-Mặt nạ khóc,+JUMP,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
-Lá phong đỏ,+INT,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
-Lá phong đỏ,+STR,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
-Lá phong đỏ,+DEX,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
-Lá phong đỏ,+LUK,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
-Mặt nạ gấu mèo,Tự vào game xem đi,7,LV: 35,Equip,FULL,Rừng ngủ say
-Mặt nạ vui vẻ,+SPEED,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
+Mặt nạ khóc,+JUMP,7,Lười ghi bome,Phụ kiện mặt,FULL,Rừng ngủ say
+Lá phong đỏ,+INT,7,Lười ghi bome,Phụ kiện mặt,FULL,Rừng ngủ say
+Lá phong đỏ,+STR,7,Lười ghi bome,Phụ kiện mặt,FULL,Rừng ngủ say
+Lá phong đỏ,+DEX,7,Lười ghi bome,Phụ kiện mặt,FULL,Rừng ngủ say
+Lá phong đỏ,+LUK,7,Lười ghi bome,Phụ kiện mặt,FULL,Rừng ngủ say
+Mặt nạ gấu mèo,Tự vào game xem đi,7,LV: 35,Mắt kính,FULL,Rừng ngủ say
+Mặt nạ vui vẻ,+SPEED,7,Lười ghi bome,Phụ kiện mặt,FULL,Rừng ngủ say
 Mũ khúc côn cầu đen,Tự vào game xem đi,7,Lười ghi bome,Mũ,FULL,Rừng ngủ say
 Mũ trùm đầu sao đen,Tự vào game xem đi,7,Lười ghi bome,Mũ,FULL,Rừng ngủ say
 Mũ khúc côn cầu xanh,Tự vào game xem đi,7,Lười ghi bome,Mũ,FULL,Rừng ngủ say
@@ -522,8 +522,8 @@ Xăng đan có quai hậu đen,Tự vào game xem đi,5,Lười ghi bome,Giày,F
 Xăng đan có quai hậu xanh lục,+SPEED,5,Lười ghi bome,Giày,FULL,Rừng ngủ say
 Thương tre,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Rừng ngủ say
 Cành tre hoa quả,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Rừng ngủ say
-Vòng lắc,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
-Bảng pha màu,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Rừng ngủ say
+Vòng lắc,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Rừng ngủ say
+Bảng pha màu,Tự vào game xem đi,7,Lười ghi bome,Khiên,FULL,Rừng ngủ say
 Nấm độc,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,Magician,Rừng ngủ say
 Dù đỏ,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Rừng ngủ say
 Cuộn giấy quần tăng khéo léo 60%,60%,,,Scroll,,Rừng ngủ say
@@ -739,11 +739,11 @@ Cuộn giấy áo tăng phòng thủ 100%,100%,,,Scroll,,Suối nước nóng
 Cuộn giấy áo tăng sinh lực 100%,100%,,,Scroll,,Suối nước nóng
 Cuộn giấy áo tăng may mắn 100%,100%,,,Scroll,,Suối nước nóng
 Cuộn giấy áo tăng sức mạnh 100%,100%,,,Scroll,,Suối nước nóng
-Mặt nạ giận dữ,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Suối nước nóng
-Lá phong đỏ,+INT,7,Lười ghi bome,Equip,FULL,Suối nước nóng
-Lá phong đỏ,+STR,7,Lười ghi bome,Equip,FULL,Suối nước nóng
-Lá phong đỏ,+DEX,7,Lười ghi bome,Equip,FULL,Suối nước nóng
-Lá phong đỏ,+LUK,7,Lười ghi bome,Equip,FULL,Suối nước nóng
+Mặt nạ giận dữ,Tự vào game xem đi,7,Lười ghi bome,Phụ kiện mặt,FULL,Suối nước nóng
+Lá phong đỏ,+INT,7,Lười ghi bome,Phụ kiện mặt,FULL,Suối nước nóng
+Lá phong đỏ,+STR,7,Lười ghi bome,Phụ kiện mặt,FULL,Suối nước nóng
+Lá phong đỏ,+DEX,7,Lười ghi bome,Phụ kiện mặt,FULL,Suối nước nóng
+Lá phong đỏ,+LUK,7,Lười ghi bome,Phụ kiện mặt,FULL,Suối nước nóng
 Mũ đỏ khúc côn cầu cũ,Tự vào game xem đi,7,Lười ghi bome,Mũ,FULL,Suối nước nóng
 Găng tay lao động vàng,Tự vào game xem đi,5,Lười ghi bome,Găng tay,FULL,Suối nước nóng
 Áo choàng đỏ rách rưới,Tự vào game xem đi,5,Lười ghi bome,Áo choàng,FULL,Suối nước nóng
@@ -815,10 +815,10 @@ Cuộn giấy khiên tăng tấn công vật lý 10%,10%,,,Scroll,,Thành phố 
 Cuộn giấy áo tăng may mắn 10%,10%,,,Scroll,,Thành phố lá mới
 (Quỷ) Cuộn giấy áo toàn thân tăng trí tuệ 30%,30%,,,Scroll,,Thành phố lá mới
 (Quỷ) Cuộn giấy áo toàn thân tăng khéo léo 30%,30%,,,Scroll,,Thành phố lá mới
-Nơ lục,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Thành phố lá mới
-Mũi nhánh cây,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Thành phố lá mới
-Miệng chuột,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Thành phố lá mới
-Cọ vẽ đen,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Thành phố lá mới
+Nơ lục,Tự vào game xem đi,7,Lười ghi bome,Dây chuyền,FULL,Thành phố lá mới
+Mũi nhánh cây,Tự vào game xem đi,7,Lười ghi bome,Phụ kiện mặt,FULL,Thành phố lá mới
+Miệng chuột,Tự vào game xem đi,7,Lười ghi bome,Phụ kiện mặt,FULL,Thành phố lá mới
+Cọ vẽ đen,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Thành phố lá mới
 Cá ngừ đóng băng,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Thành phố lá mới
 Dù tím nhạt,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Thành phố lá mới
 Nhiệt kế,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Thành phố lá mới
@@ -915,7 +915,7 @@ Găng tay lao động nâu,Tự vào game xem đi,7,Lười ghi bome,Găng tay,F
 Găng tay lao động tím,Tự vào game xem đi,5,Lười ghi bome,Găng tay,FULL,Làng tuyết
 Găng tay lao động vàng,Tự vào game xem đi,5,Lười ghi bome,Găng tay,FULL,Làng tuyết
 Giày mực ống,Tự vào game xem đi,5,Lười ghi bome,Giày,Priate,Làng tuyết
-Giày xăng đan có quai hậu xanh lục,+SPEED,5,Lười ghi bome,Giày,FULL,Làng tuyết
+Xăng đan có quai hậu xanh lục,+SPEED,5,Lười ghi bome,Giày,FULL,Làng tuyết
 Áo choàng công lý xanh,Tự vào game xem đi,5,Lười ghi bome,Áo choàng,FULL,Làng tuyết
 Áo choàng công lý trắng,Tự vào game xem đi,5,Lười ghi bome,Áo choàng,FULL,Làng tuyết
 Áo choàng hành trình vàng,Tự vào game xem đi,8,LV: 50,Áo choàng,FULL,Làng tuyết
@@ -927,7 +927,7 @@ Ván trượt tuyết huyết,Tự vào game xem đi,7,Lười ghi bome,Vũ khí
 Phao hoa xanh,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
 Phao nhiều màu,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
 Ván trượt tuyết đen,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
-Rìu đôi phao cứu hộ,Tự vào game xem đi,7,Lười ghi bome,Equip,FULL,Làng tuyết
+Phao cứu hộ,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
 Chảo rán trứng,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
 Ván trượt xanh lá,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
 Dù lục,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
@@ -977,6 +977,7 @@ Gậy phép ngọc lửa,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,Magi
 Gậy lửa,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,Magician,Làng tuyết
 Ghế gấu bắc cực ấm áp,,,,Chair,,Làng tuyết
 Giày đi trên tuyết vàng,Tự vào game xem đi,7,Lười ghi bome,Giày,FULL,Làng tuyết
+Rìu đôi,Tự vào game xem đi,7,Lười ghi bome,Vũ khí,FULL,Làng tuyết
 Thuốc tiên,,,,Use,,Singapore
 Phô mai tan,,,,Use,,Singapore
 thuốc tiên lớn,,,,Use,,Singapore
