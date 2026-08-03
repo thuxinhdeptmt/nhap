@@ -45,7 +45,11 @@ function attachEvents() {
 
   elements.itemName.addEventListener('input', () => {
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(filterAndRender, 180);
+
+    typingTimer = setTimeout(() => {
+      syncQuickChips();
+      filterAndRender();
+    }, 180);
   });
 
   [
@@ -201,6 +205,15 @@ function applyQuickFilter(chip) {
     elements.basicStat.value = '';
   }
 
+  if (filterType === 'item-name') {
+    const selectedIsSame =
+      normalize(elements.itemName.value) === normalize(filterValue);
+
+    elements.itemName.value = selectedIsSame
+      ? ''
+      : filterValue;
+  }
+
   syncQuickChips();
   syncSelectIcons();
   filterAndRender();
@@ -229,6 +242,11 @@ function syncQuickChips() {
 
     if (filterType === 'stat') {
       isActive = selectedQuickStat === filterValue;
+    }
+
+    if (filterType === 'item-name') {
+      isActive =
+        normalize(elements.itemName.value) === normalize(filterValue);
     }
 
     chip.classList.toggle('active', isActive);
