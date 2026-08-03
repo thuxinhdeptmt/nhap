@@ -18,6 +18,11 @@
   --primary-hover: #62b596;
   --primary-strong: #2f8f6f;
 
+  --accent-yellow: #f2b84b;
+  --accent-mint: #7bc8aa;
+  --accent-blue: #9fc9ef;
+  --accent-pink: #eaa7bb;
+
   --button-secondary: #edf4f0;
   --button-secondary-hover: #e2eee8;
 
@@ -43,13 +48,14 @@ body {
   margin: 0;
   background: var(--page-background);
   color: var(--text-main);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Exo 2", Arial, Helvetica, sans-serif;
 }
 
 button,
 input,
 select {
   font: inherit;
+  font-family: "Exo 2", Arial, Helvetica, sans-serif;
 }
 
 .page {
@@ -68,9 +74,35 @@ select {
 
 .page-header h1 {
   margin: 0;
-  font-size: 31px;
-  line-height: 1.2;
-  letter-spacing: -0.4px;
+}
+
+.brand-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-family: "Fredoka", "Exo 2", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: 0.1px;
+
+  color: #2f8f6f;
+}
+
+.title-star {
+  display: inline-block;
+  color: var(--accent-yellow);
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  transform: translateY(-1px);
+  text-shadow: 0 2px 8px rgba(242, 184, 75, 0.28);
+}
+
+.title-star-small {
+  font-size: 15px;
+  transform: translateY(-8px);
 }
 
 /* =========================
@@ -158,8 +190,57 @@ select {
 }
 
 .field select {
-  padding: 0 27px 0 8px;
+  padding: 0 27px 0 30px;
   cursor: pointer;
+  transition:
+    padding-left 0.16s ease,
+    border-color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-icon {
+  position: absolute;
+  top: 50%;
+  left: 9px;
+  z-index: 1;
+
+  display: grid;
+  place-items: center;
+
+  width: 14px;
+  height: 14px;
+
+  color: #6d8e7f;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition:
+    opacity 0.14s ease,
+    transform 0.14s ease;
+}
+
+.select-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.select-wrapper.has-value .select-icon {
+  opacity: 0;
+  transform: translateY(-50%) scale(0.82);
+}
+
+.select-wrapper.has-value select {
+  padding-left: 8px;
 }
 
 .field input::placeholder {
@@ -185,43 +266,58 @@ select {
 
 .actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 7px;
 }
 
 .action-button {
-  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: 100%;
+  min-height: 32px;
   border: 0;
-  border-radius: 8px;
-  padding: 0 6px;
+  border-radius: 9px;
+  padding: 0 10px;
+
   font-size: 10px;
   font-weight: 700;
   cursor: pointer;
+
   transition:
     background-color 0.16s ease,
-    transform 0.08s ease;
+    box-shadow 0.16s ease,
+    transform 0.12s ease;
 }
 
 .action-button:active {
   transform: translateY(1px);
+  box-shadow: none;
 }
 
 .button-reset {
   background: var(--primary);
   color: #ffffff;
+  box-shadow: 0 3px 8px rgba(47, 143, 111, 0.13);
 }
 
 .button-reset:hover {
   background: var(--primary-hover);
+  box-shadow: 0 5px 12px rgba(47, 143, 111, 0.18);
+  transform: translateY(-1px);
 }
 
-.button-reload {
-  background: var(--button-secondary);
-  color: var(--text-main);
+.reset-symbol {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.2s ease;
 }
 
-.button-reload:hover {
-  background: var(--button-secondary-hover);
+.button-reset:hover .reset-symbol {
+  transform: rotate(-120deg);
 }
 
 /* =========================
@@ -475,19 +571,26 @@ tbody tr:hover {
   cursor: pointer;
   user-select: none;
   transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
     background-color 0.15s ease,
     border-color 0.15s ease,
-    color 0.15s ease,
-    transform 0.08s ease;
+    color 0.15s ease;
 }
 
 .machine-badge:hover {
-  border-color: #b7cfc3;
-  background: #f6faf8;
+  transform: translateY(-2px);
+  border-color: #a8ceb9;
+  background: #f8fcfa;
+  box-shadow:
+    0 4px 10px rgba(47, 143, 111, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .machine-badge:active {
-  transform: translateY(1px);
+  transform: translateY(0);
+  box-shadow:
+    0 2px 4px rgba(47, 143, 111, 0.08);
 }
 
 .machine-badge.active {
@@ -495,6 +598,8 @@ tbody tr:hover {
   background: var(--badge-active-background);
   color: var(--badge-active-text);
   font-weight: 700;
+  box-shadow:
+    0 3px 8px rgba(47, 143, 111, 0.12);
 }
 
 .machine-dot {
@@ -539,6 +644,12 @@ tbody tr:hover {
   .field select {
     height: 29px;
     font-size: 10px;
+  }
+
+  .select-icon {
+    width: 13px;
+    height: 13px;
+    left: 8px;
   }
 
   .quick-chip {
@@ -617,8 +728,8 @@ tbody tr:hover {
     padding: 8px;
   }
 
-  .page-header h1 {
-    font-size: 25px;
+  .brand-title {
+    font-size: 31px;
   }
 
   .sidebar-body {
@@ -632,5 +743,276 @@ tbody tr:hover {
 
   .actions {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================
+   FONT OVERRIDES
+   ========================= */
+
+body,
+button,
+input,
+select,
+table,
+th,
+td,
+label,
+.result-status,
+.quick-chip,
+.action-button {
+  font-family: "Exo 2", Arial, Helvetica, sans-serif;
+}
+
+.content-header h2 {
+  font-family: "Exo 2", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.page-header h1 {
+  font-family: "Fredoka", "Exo 2", sans-serif;
+}
+
+
+/* =========================
+   ĐIỂM NHẤN TRANG TRÍ
+   ========================= */
+
+
+/* Tạo chiều sâu rất nhẹ cho hai khối chính */
+.sidebar {
+  box-shadow:
+    0 12px 34px rgba(31, 41, 55, 0.07),
+    0 3px 0 rgba(255, 255, 255, 0.85) inset;
+}
+
+.table-card {
+  box-shadow:
+    0 12px 34px rgba(31, 41, 55, 0.07),
+    0 3px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+@media (max-width: 620px) {
+  .brand-title {
+    gap: 6px;
+  }
+
+  .title-star {
+    font-size: 18px;
+  }
+
+  .title-star-small {
+    font-size: 12px;
+    transform: translateY(-6px);
+  }
+}
+
+
+/* =========================================================
+   CUTE UPDATE 02 — NỀN MỜ VÀ SIDEBAR CHIA THÀNH CARD
+   ========================================================= */
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle at 22px 22px, rgba(242, 184, 75, 0.11) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 76px 64px, rgba(120, 196, 167, 0.10) 0 2.5px, transparent 3px),
+    linear-gradient(45deg, transparent 48%, rgba(234, 167, 187, 0.055) 49% 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(159, 201, 239, 0.05) 49% 51%, transparent 52%);
+  background-size:
+    112px 112px,
+    136px 136px,
+    94px 94px,
+    94px 94px;
+  background-position:
+    0 0,
+    18px 24px,
+    36px 10px,
+    36px 10px;
+}
+
+.sidebar {
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.sidebar-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+}
+
+.filter-card,
+.sidebar-footer-card {
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow:
+    0 7px 20px rgba(31, 41, 55, 0.045),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.filter-card::after {
+  content: "";
+  position: absolute;
+  top: -17px;
+  right: -17px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.filter-card-search {
+  background: rgba(255, 253, 246, 0.94);
+}
+
+.filter-card-search::after {
+  background: #f8dda0;
+}
+
+.filter-card-stats {
+  background: rgba(247, 252, 255, 0.94);
+}
+
+.filter-card-stats::after {
+  background: #bcdcf5;
+}
+
+.filter-card-type {
+  background: rgba(250, 255, 252, 0.95);
+}
+
+.filter-card-type::after {
+  background: #bce5d4;
+}
+
+.sidebar-footer-card {
+  background: rgba(251, 254, 252, 0.95);
+}
+
+.filter-card .field {
+  margin-bottom: 8px;
+}
+
+.filter-card .field:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar-footer-card .quick-filter {
+  margin-top: 11px;
+  padding-top: 10px;
+}
+
+.sidebar-footer-card .actions {
+  margin: 0;
+}
+
+/* =========================================================
+   CUTE UPDATE 03 — BADGE MÁY XỔ SỐ GIỐNG ĐỊA ĐIỂM CÓ THỂ BẤM
+   ========================================================= */
+
+.machine-badge {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.machine-badge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.92) 48%,
+    transparent 72%
+  );
+  transform: translateX(-135%);
+  transition: transform 0.38s ease;
+}
+
+.machine-badge:hover::before {
+  transform: translateX(135%);
+}
+
+.machine-badge:hover {
+  transform: translateY(-2px) scale(1.025);
+  border-color: #a6cdb9;
+  color: #334b40;
+  box-shadow:
+    0 5px 12px rgba(47, 143, 111, 0.13),
+    0 1px 2px rgba(0, 0, 0, 0.045);
+}
+
+.machine-dot {
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+}
+
+.machine-badge:hover .machine-dot {
+  transform: scale(1.28);
+  filter: saturate(1.18);
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.95),
+    0 0 0 4px var(--machine-color, #7b8a83);
+}
+
+.machine-badge.active .machine-dot {
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.95),
+    0 0 0 3px var(--machine-color, #7b8a83);
+}
+
+@media (max-width: 900px) {
+  .sidebar-body {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .filter-card-search,
+  .sidebar-footer-card {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .sidebar-body {
+    display: block;
+  }
+
+  .filter-card,
+  .sidebar-footer-card {
+    margin-bottom: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .machine-badge,
+  .machine-badge::before,
+  .machine-dot {
+    transition: none;
   }
 }
