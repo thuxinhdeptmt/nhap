@@ -778,3 +778,4 @@ function enableMapleDrag({
   thumb.addEventListener('pointerup', stop);
   thumb.addEventListener('pointercancel', stop);
 }
+
