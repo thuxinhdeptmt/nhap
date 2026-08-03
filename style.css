@@ -818,6 +818,32 @@ body {
   isolation: isolate;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjgwIiB2aWV3Qm94PSIwIDAgMzYwIDI4MCI+CiAgPGcgb3BhY2l0eT0iLjE4Ij4KICAgIDxnIGZpbGw9IiM3YmM4YWEiPgogICAgICA8cmVjdCB4PSIzNCIgeT0iNDgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz4KICAgICAgPHJlY3QgeD0iMzAiIHk9IjUyIiB3aWR0aD0iMTIiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIzNCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIi8+CiAgICAgIDxyZWN0IHg9IjI4IiB5PSI1OCIgd2lkdGg9IjYiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIzOCIgeT0iNTgiIHdpZHRoPSI2IiBoZWlnaHQ9IjQiLz4KICAgICAgPHJlY3QgeD0iMzQiIHk9IjY2IiB3aWR0aD0iNCIgaGVpZ2h0PSI2Ii8+CiAgICA8L2c+CgogICAgPGcgZmlsbD0iI2YyYjg0YiI+CiAgICAgIDxyZWN0IHg9IjI3MiIgeT0iMzgiIHdpZHRoPSIzIiBoZWlnaHQ9IjkiLz4KICAgICAgPHJlY3QgeD0iMjY5IiB5PSI0MSIgd2lkdGg9IjkiIGhlaWdodD0iMyIvPgogICAgICA8cmVjdCB4PSIyNzEiIHk9IjQwIiB3aWR0aD0iNSIgaGVpZ2h0PSI1Ii8+CiAgICA8L2c+CgogICAgPGcgZmlsbD0iI2VhYTdiYiI+CiAgICAgIDxyZWN0IHg9IjI5OCIgeT0iMTg4IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICAgIDxyZWN0IHg9IjMwNiIgeT0iMTk4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjI4NiIgeT0iMjEyIiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICA8L2c+CgogICAgPGcgZmlsbD0iIzlmYzllZiI+CiAgICAgIDxyZWN0IHg9IjEwNCIgeT0iMjA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjExMiIgeT0iMjE2IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICAgIDxyZWN0IHg9IjkyIiB5PSIyMjYiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiLz4KICAgIDwvZz4KCiAgICA8ZyBmaWxsPSIjZjJiODRiIj4KICAgICAgPHJlY3QgeD0iMTg0IiB5PSIxMjYiIHdpZHRoPSIzIiBoZWlnaHQ9IjciLz4KICAgICAgPHJlY3QgeD0iMTgyIiB5PSIxMjgiIHdpZHRoPSI3IiBoZWlnaHQ9IjMiLz4KICAgIDwvZz4KCiAgICA8ZyBmaWxsPSIjNzhjNGE3Ij4KICAgICAgPHJlY3QgeD0iMzMwIiB5PSI5MCIgd2lkdGg9IjMiIGhlaWdodD0iMyIvPgogICAgICA8cmVjdCB4PSIxOCIgeT0iMjM2IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICAgIDxyZWN0IHg9IjIyNiIgeT0iMjQ0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=");
+  background-repeat: repeat;
+  background-size: 360px 280px;
+  background-position: 0 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE2MDAgOTAwIj4KICA8ZyBvcGFjaXR5PSIuMDg1Ij4KICAgIDxnIGZpbGw9IiM3OGM0YTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0IDExMCkgc2NhbGUoMi4yKSI+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSI4Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjQiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjIiIHk9IjgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjEyIiB3aWR0aD0iMTIiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIi8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZjJiODRiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNTEwIDcyKSBzY2FsZSgyKSI+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjE2Ii8+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjYiIHdpZHRoPSIxNiIgaGVpZ2h0PSI0Ii8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZWFhN2JiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDgwIDc4MCkgc2NhbGUoMS44KSI+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSI4Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjQiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjIiIHk9IjgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjEyIiB3aWR0aD0iMTIiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIi8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjOWZjOWVmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OCA4MTApIHNjYWxlKDEuOCkiPgogICAgICA8cmVjdCB4PSI2IiB5PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSIxNiIvPgogICAgICA8cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iMTYiIGhlaWdodD0iNCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .sidebar {
   overflow: visible;
   background: transparent;
@@ -1073,161 +1099,70 @@ body {
 
 
 /* =========================================================
-   MAPLE CLEAN — NỀN LÁ PHONG NHỎ VÀ THƯA
+   MAPLE UPDATE — THUMB THANH CUỘN HÌNH LÁ PHONG
    ========================================================= */
 
-body {
-  position: relative;
-  isolation: isolate;
-  background-color: var(--page-background);
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #78c4a7 transparent;
 }
 
-body::before {
-  content: "🍁";
-  position: fixed;
-  top: 70px;
-  left: 16px;
-  z-index: -2;
-
-  font-size: 20px;
-  line-height: 1;
-  opacity: 0.08;
-  transform: rotate(-16deg);
-
-  pointer-events: none;
+body::-webkit-scrollbar,
+.table-scroll::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
 }
 
-body::after {
-  content: "🍁";
-  position: fixed;
-  right: 22px;
-  bottom: 24px;
-  z-index: -2;
-
-  font-size: 24px;
-  line-height: 1;
-  opacity: 0.07;
-  transform: rotate(16deg);
-
-  pointer-events: none;
+body::-webkit-scrollbar-track,
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
+body::-webkit-scrollbar-thumb,
+.table-scroll::-webkit-scrollbar-thumb {
+  min-height: 34px;
+  border: 0;
+  border-radius: 0;
 
-  background-image:
-    radial-gradient(circle at 18% 10%, rgba(242, 184, 75, 0.11) 0 2px, transparent 2.5px),
-    radial-gradient(circle at 74% 8%, rgba(120, 196, 167, 0.09) 0 2px, transparent 2.5px),
-    radial-gradient(circle at 11% 86%, rgba(234, 167, 187, 0.08) 0 2px, transparent 2.5px),
-    radial-gradient(circle at 91% 76%, rgba(159, 201, 239, 0.08) 0 2px, transparent 2.5px);
-}
+  background-color: #78c4a7;
+  background-image: none;
+  background-clip: border-box;
 
-/* =========================================================
-   THANH CUỘN LÁ PHONG
-   ========================================================= */
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDE4IDI0Ij4KICA8cGF0aCBmaWxsPSIjMDAwIiBkPSJNOSAwLjggMTEuMSA1bDMuNy0xLjctMS40IDQuMiAzLjggMS4xLTMuMiAyLjUgMi4yIDMuMS00LjQtLjMtLjkgNC4xLTEuOS0yLjhMNy4xIDE4bC0uOS00LjEtNC40LjNMNCAxMS4xLjggOC42bDMuOC0xLjEtMS40LTQuMkw2LjkgNSA5IC44Wm0tLjggMTUuN2gxLjZ2Ni43SDguMnoiLz4KPC9zdmc+");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 14px 20px;
 
-@media (pointer: fine) {
-  html,
-  body,
-  .table-scroll {
-    scrollbar-width: none;
-  }
-
-  body::-webkit-scrollbar,
-  .table-scroll::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
-}
-
-.maple-scrollbar {
-  position: fixed;
-  top: 12px;
-  right: 3px;
-  bottom: 12px;
-  z-index: 9999;
-  width: 24px;
-  pointer-events: none;
-}
-
-.maple-scrollbar-track {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  border-radius: 999px;
-  background: rgba(120, 196, 167, 0.14);
-  transform: translateX(-50%);
-}
-
-.maple-scrollbar-thumb {
-  position: absolute;
-  top: 0;
-  left: 50%;
-
-  display: grid;
-  place-items: center;
-
-  width: 24px;
-  height: 28px;
-
-  font-size: 20px;
-  line-height: 1;
-
-  cursor: grab;
-  pointer-events: auto;
-  user-select: none;
-
-  transform: translateX(-50%);
-  filter: drop-shadow(0 2px 3px rgba(47, 143, 111, 0.18));
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDE4IDI0Ij4KICA8cGF0aCBmaWxsPSIjMDAwIiBkPSJNOSAwLjggMTEuMSA1bDMuNy0xLjctMS40IDQuMiAzLjggMS4xLTMuMiAyLjUgMi4yIDMuMS00LjQtLjMtLjkgNC4xLTEuOS0yLjhMNy4xIDE4bC0uOS00LjEtNC40LjNMNCAxMS4xLjggOC42bDMuOC0xLjEtMS40LTQuMkw2LjkgNSA5IC44Wm0tLjggMTUuN2gxLjZ2Ni43SDguMnoiLz4KPC9zdmc+");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 14px 20px;
 
   transition:
-    transform 0.15s ease,
-    filter 0.15s ease;
+    background-color 0.16s ease,
+    transform 0.16s ease;
 }
 
-.maple-scrollbar-thumb:hover {
-  transform: translateX(-50%) scale(1.12) rotate(-5deg);
-  filter: drop-shadow(0 3px 5px rgba(242, 184, 75, 0.24));
+body::-webkit-scrollbar-thumb:hover,
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #f2b84b;
 }
 
-.maple-scrollbar-thumb:active {
-  cursor: grabbing;
-  transform: translateX(-50%) scale(1.04);
+body::-webkit-scrollbar-corner,
+.table-scroll::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
-.table-card {
-  position: relative;
-}
+@media (max-width: 620px) {
+  body::-webkit-scrollbar,
+  .table-scroll::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+  }
 
-.table-maple-scrollbar {
-  position: absolute;
-  top: 8px;
-  right: 2px;
-  bottom: 8px;
-  z-index: 30;
-  width: 22px;
-  pointer-events: none;
-}
-
-.table-maple-scrollbar .maple-scrollbar-track {
-  background: rgba(120, 196, 167, 0.11);
-}
-
-.table-maple-scrollbar .maple-scrollbar-thumb {
-  width: 22px;
-  height: 26px;
-  font-size: 18px;
-}
-
-@media (pointer: coarse), (max-width: 900px) {
-  .maple-scrollbar,
-  .table-maple-scrollbar {
-    display: none;
+  body::-webkit-scrollbar-thumb,
+  .table-scroll::-webkit-scrollbar-thumb {
+    -webkit-mask-size: 12px 18px;
+    mask-size: 12px 18px;
   }
 }
