@@ -1016,3 +1016,49 @@ body::before {
     transition: none;
   }
 }
+
+
+/* =========================================================
+   UPDATE — GỘP TOÀN BỘ BỘ LỌC CHỌN VÀO MỘT CARD
+   ========================================================= */
+
+.filter-card-options {
+  background: rgba(249, 254, 252, 0.96);
+}
+
+.filter-card-options::after {
+  background: #bce5d4;
+}
+
+.quick-chip-name {
+  padding-inline: 9px;
+}
+
+/* Hai nút tên dài được đặt mỗi nút thành một hàng để dễ đọc */
+.quick-chip-name {
+  flex: 1 1 calc(50% - 3px);
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .quick-chip-name {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .filter-card-options {
+    grid-column: 1 / -1;
+  }
+
+  .quick-chip-name {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .quick-chip-name {
+    flex-basis: calc(50% - 3px);
+  }
+}
