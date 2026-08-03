@@ -1362,3 +1362,31 @@ body::-webkit-scrollbar {
 .sidebar-footer-card {
   padding-bottom: 8px;
 }
+
+
+/* =========================================================
+   BẢNG TỰ CO KHI ÍT DỮ LIỆU
+   ========================================================= */
+
+.content{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.table-card{
+  flex:0 1 auto !important;
+  max-height:100%;
+  min-height:0;
+}
+
+.table-scroll{
+  height:auto !important;
+  max-height:calc(100vh - 210px);
+  overflow-y:auto;
+}
+
+/* Khi nhiều dữ liệu thì vẫn chiếm hết phần còn lại */
+.table-scroll.has-scroll{
+  height:100%;
+}
