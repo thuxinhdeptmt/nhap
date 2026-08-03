@@ -632,3 +632,192 @@ function parseCsv(text) {
 
   return rows;
 }
+
+
+/* =========================================================
+   CUSTOM LEAF SCROLLBARS
+   ========================================================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initLeafScrollbars();
+});
+
+function initLeafScrollbars() {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
+  createPageLeafScrollbar();
+
+  const tableScroll = document.querySelector('.table-scroll');
+  const tableCard = document.querySelector('.table-card');
+
+  if (tableScroll && tableCard) {
+    createElementLeafScrollbar(tableScroll, tableCard);
+  }
+}
+
+function createPageLeafScrollbar() {
+  const scrollbar = document.createElement('div');
+  scrollbar.className = 'page-leaf-scrollbar';
+  scrollbar.innerHTML = `
+    <div class="page-leaf-scrollbar-track"></div>
+    <div class="page-leaf-scrollbar-thumb" aria-hidden="true"></div>
+  `;
+
+  document.body.appendChild(scrollbar);
+
+  const thumb = scrollbar.querySelector('.page-leaf-scrollbar-thumb');
+  const track = scrollbar.querySelector('.page-leaf-scrollbar-track');
+
+  const update = () => {
+    const maxScroll =
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+    scrollbar.style.display = maxScroll > 1 ? '' : 'none';
+
+    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+    thumb.style.top = `${ratio * usableTrack}px`;
+  };
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  new ResizeObserver(update).observe(document.documentElement);
+
+  makeThumbDraggable({
+    thumb,
+    track,
+    getMaxScroll: () =>
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight),
+    getScroll: () => window.scrollY,
+    setScroll: value => window.scrollTo({ top: value, behavior: 'auto' })
+  });
+
+  track.addEventListener('pointerdown', event => {
+    if (event.target === thumb) return;
+
+    const rect = track.getBoundingClientRect();
+    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const position = Math.min(
+      usableTrack,
+      Math.max(0, event.clientY - rect.top - thumb.offsetHeight / 2)
+    );
+
+    const maxScroll =
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+    window.scrollTo({
+      top: (position / usableTrack) * maxScroll,
+      behavior: 'smooth'
+    });
+  });
+
+  update();
+}
+
+function createElementLeafScrollbar(scrollElement, hostElement) {
+  const scrollbar = document.createElement('div');
+  scrollbar.className = 'table-leaf-scrollbar';
+  scrollbar.innerHTML = `
+    <div class="table-leaf-scrollbar-track"></div>
+    <div class="table-leaf-scrollbar-thumb" aria-hidden="true"></div>
+  `;
+
+  hostElement.appendChild(scrollbar);
+
+  const thumb = scrollbar.querySelector('.table-leaf-scrollbar-thumb');
+  const track = scrollbar.querySelector('.table-leaf-scrollbar-track');
+
+  const update = () => {
+    const maxScroll =
+      Math.max(0, scrollElement.scrollHeight - scrollElement.clientHeight);
+
+    scrollbar.style.display = maxScroll > 1 ? '' : 'none';
+
+    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const ratio = maxScroll > 0
+      ? scrollElement.scrollTop / maxScroll
+      : 0;
+
+    thumb.style.top = `${ratio * usableTrack}px`;
+  };
+
+  scrollElement.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  new ResizeObserver(update).observe(scrollElement);
+
+  makeThumbDraggable({
+    thumb,
+    track,
+    getMaxScroll: () =>
+      Math.max(0, scrollElement.scrollHeight - scrollElement.clientHeight),
+    getScroll: () => scrollElement.scrollTop,
+    setScroll: value => {
+      scrollElement.scrollTop = value;
+    }
+  });
+
+  track.addEventListener('pointerdown', event => {
+    if (event.target === thumb) return;
+
+    const rect = track.getBoundingClientRect();
+    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const position = Math.min(
+      usableTrack,
+      Math.max(0, event.clientY - rect.top - thumb.offsetHeight / 2)
+    );
+
+    const maxScroll =
+      Math.max(0, scrollElement.scrollHeight - scrollElement.clientHeight);
+
+    scrollElement.scrollTo({
+      top: (position / usableTrack) * maxScroll,
+      behavior: 'smooth'
+    });
+  });
+
+  update();
+}
+
+function makeThumbDraggable({
+  thumb,
+  track,
+  getMaxScroll,
+  getScroll,
+  setScroll
+}) {
+  let dragging = false;
+  let startPointerY = 0;
+  let startScroll = 0;
+
+  thumb.addEventListener('pointerdown', event => {
+    dragging = true;
+    startPointerY = event.clientY;
+    startScroll = getScroll();
+
+    thumb.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  });
+
+  thumb.addEventListener('pointermove', event => {
+    if (!dragging) return;
+
+    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const maxScroll = getMaxScroll();
+    const delta = event.clientY - startPointerY;
+
+    setScroll(startScroll + (delta / usableTrack) * maxScroll);
+  });
+
+  const stopDragging = event => {
+    if (!dragging) return;
+    dragging = false;
+
+    try {
+      thumb.releasePointerCapture(event.pointerId);
+    } catch {}
+  };
+
+  thumb.addEventListener('pointerup', stopDragging);
+  thumb.addEventListener('pointercancel', stopDragging);
+}
