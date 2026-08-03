@@ -635,120 +635,95 @@ function parseCsv(text) {
 
 
 /* =========================================================
-   CUSTOM LEAF SCROLLBARS
+   MAPLE SCROLLBARS
    ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initLeafScrollbars();
-});
-
-function initLeafScrollbars() {
   if (!window.matchMedia('(pointer: fine)').matches) return;
 
-  createPageLeafScrollbar();
+  createWindowMapleScrollbar();
 
   const tableScroll = document.querySelector('.table-scroll');
   const tableCard = document.querySelector('.table-card');
 
   if (tableScroll && tableCard) {
-    createElementLeafScrollbar(tableScroll, tableCard);
+    createElementMapleScrollbar(tableScroll, tableCard);
   }
-}
+});
 
-function createPageLeafScrollbar() {
-  const scrollbar = document.createElement('div');
-  scrollbar.className = 'page-leaf-scrollbar';
-  scrollbar.innerHTML = `
-    <div class="page-leaf-scrollbar-track"></div>
-    <div class="page-leaf-scrollbar-thumb" aria-hidden="true"></div>
+function createWindowMapleScrollbar() {
+  const bar = document.createElement('div');
+  bar.className = 'maple-scrollbar';
+  bar.innerHTML = `
+    <div class="maple-scrollbar-track"></div>
+    <div class="maple-scrollbar-thumb" aria-hidden="true">🍁</div>
   `;
 
-  document.body.appendChild(scrollbar);
+  document.body.appendChild(bar);
 
-  const thumb = scrollbar.querySelector('.page-leaf-scrollbar-thumb');
-  const track = scrollbar.querySelector('.page-leaf-scrollbar-track');
+  const thumb = bar.querySelector('.maple-scrollbar-thumb');
 
   const update = () => {
     const maxScroll =
       Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
 
-    scrollbar.style.display = maxScroll > 1 ? '' : 'none';
+    bar.style.display = maxScroll > 1 ? '' : 'none';
 
-    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const usable = Math.max(1, bar.clientHeight - thumb.offsetHeight);
     const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
 
-    thumb.style.top = `${ratio * usableTrack}px`;
+    thumb.style.top = `${ratio * usable}px`;
   };
 
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+
   new ResizeObserver(update).observe(document.documentElement);
 
-  makeThumbDraggable({
+  enableMapleDrag({
     thumb,
-    track,
+    container: bar,
     getMaxScroll: () =>
       Math.max(0, document.documentElement.scrollHeight - window.innerHeight),
     getScroll: () => window.scrollY,
-    setScroll: value => window.scrollTo({ top: value, behavior: 'auto' })
-  });
-
-  track.addEventListener('pointerdown', event => {
-    if (event.target === thumb) return;
-
-    const rect = track.getBoundingClientRect();
-    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
-    const position = Math.min(
-      usableTrack,
-      Math.max(0, event.clientY - rect.top - thumb.offsetHeight / 2)
-    );
-
-    const maxScroll =
-      Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-
-    window.scrollTo({
-      top: (position / usableTrack) * maxScroll,
-      behavior: 'smooth'
-    });
+    setScroll: value => window.scrollTo(0, value)
   });
 
   update();
 }
 
-function createElementLeafScrollbar(scrollElement, hostElement) {
-  const scrollbar = document.createElement('div');
-  scrollbar.className = 'table-leaf-scrollbar';
-  scrollbar.innerHTML = `
-    <div class="table-leaf-scrollbar-track"></div>
-    <div class="table-leaf-scrollbar-thumb" aria-hidden="true"></div>
+function createElementMapleScrollbar(scrollElement, hostElement) {
+  const bar = document.createElement('div');
+  bar.className = 'table-maple-scrollbar';
+  bar.innerHTML = `
+    <div class="maple-scrollbar-track"></div>
+    <div class="maple-scrollbar-thumb" aria-hidden="true">🍁</div>
   `;
 
-  hostElement.appendChild(scrollbar);
+  hostElement.appendChild(bar);
 
-  const thumb = scrollbar.querySelector('.table-leaf-scrollbar-thumb');
-  const track = scrollbar.querySelector('.table-leaf-scrollbar-track');
+  const thumb = bar.querySelector('.maple-scrollbar-thumb');
 
   const update = () => {
     const maxScroll =
       Math.max(0, scrollElement.scrollHeight - scrollElement.clientHeight);
 
-    scrollbar.style.display = maxScroll > 1 ? '' : 'none';
+    bar.style.display = maxScroll > 1 ? '' : 'none';
 
-    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
-    const ratio = maxScroll > 0
-      ? scrollElement.scrollTop / maxScroll
-      : 0;
+    const usable = Math.max(1, bar.clientHeight - thumb.offsetHeight);
+    const ratio = maxScroll > 0 ? scrollElement.scrollTop / maxScroll : 0;
 
-    thumb.style.top = `${ratio * usableTrack}px`;
+    thumb.style.top = `${ratio * usable}px`;
   };
 
   scrollElement.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
+
   new ResizeObserver(update).observe(scrollElement);
 
-  makeThumbDraggable({
+  enableMapleDrag({
     thumb,
-    track,
+    container: bar,
     getMaxScroll: () =>
       Math.max(0, scrollElement.scrollHeight - scrollElement.clientHeight),
     getScroll: () => scrollElement.scrollTop,
@@ -757,31 +732,12 @@ function createElementLeafScrollbar(scrollElement, hostElement) {
     }
   });
 
-  track.addEventListener('pointerdown', event => {
-    if (event.target === thumb) return;
-
-    const rect = track.getBoundingClientRect();
-    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
-    const position = Math.min(
-      usableTrack,
-      Math.max(0, event.clientY - rect.top - thumb.offsetHeight / 2)
-    );
-
-    const maxScroll =
-      Math.max(0, scrollElement.scrollHeight - scrollElement.clientHeight);
-
-    scrollElement.scrollTo({
-      top: (position / usableTrack) * maxScroll,
-      behavior: 'smooth'
-    });
-  });
-
   update();
 }
 
-function makeThumbDraggable({
+function enableMapleDrag({
   thumb,
-  track,
+  container,
   getMaxScroll,
   getScroll,
   setScroll
@@ -802,15 +758,16 @@ function makeThumbDraggable({
   thumb.addEventListener('pointermove', event => {
     if (!dragging) return;
 
-    const usableTrack = Math.max(1, track.clientHeight - thumb.offsetHeight);
+    const usable = Math.max(1, container.clientHeight - thumb.offsetHeight);
     const maxScroll = getMaxScroll();
     const delta = event.clientY - startPointerY;
 
-    setScroll(startScroll + (delta / usableTrack) * maxScroll);
+    setScroll(startScroll + (delta / usable) * maxScroll);
   });
 
-  const stopDragging = event => {
+  const stop = event => {
     if (!dragging) return;
+
     dragging = false;
 
     try {
@@ -818,6 +775,6 @@ function makeThumbDraggable({
     } catch {}
   };
 
-  thumb.addEventListener('pointerup', stopDragging);
-  thumb.addEventListener('pointercancel', stopDragging);
+  thumb.addEventListener('pointerup', stop);
+  thumb.addEventListener('pointercancel', stop);
 }
