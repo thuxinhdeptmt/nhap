@@ -1330,3 +1330,22 @@ body::-webkit-scrollbar {
     overflow-y: visible;
   }
 }
+
+
+/* =========================================================
+   FIX KHOẢNG CÁCH — KHÔNG ĐỂ KHUNG TÌM NHANH SÁT MÉP DƯỚI
+   ========================================================= */
+
+.sidebar {
+  height: calc(100% - 10px);
+  align-self: start;
+}
+
+.sidebar-body {
+  height: 100%;
+}
+
+/* Giữ khoảng thở nhỏ bên dưới card cuối */
+.sidebar-footer-card {
+  margin-bottom: 2px;
+}
