@@ -28,7 +28,6 @@ const elements = {
   machine: document.getElementById('machine'),
 
   resetButton: document.getElementById('resetButton'),
-  reloadButton: document.getElementById('reloadButton'),
 
   status: document.getElementById('status'),
   resultBody: document.getElementById('resultBody'),
@@ -42,8 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function attachEvents() {
-  elements.resetButton.addEventListener('click', resetFilters);
-  elements.reloadButton.addEventListener('click', loadData);
+  elements.resetButton.addEventListener('click', loadData);
 
   elements.itemName.addEventListener('input', () => {
     clearTimeout(typingTimer);
@@ -63,6 +61,7 @@ function attachEvents() {
       }
 
       syncQuickChips();
+      syncSelectIcons();
       filterAndRender();
     });
   });
@@ -104,6 +103,7 @@ async function loadData() {
 
     createDropdowns();
     resetFilters(false);
+    syncSelectIcons();
     filterAndRender();
   } catch (error) {
     elements.status.textContent = 'Không thể tải dữ liệu';
@@ -115,7 +115,7 @@ function createDropdowns() {
   fillSelect(elements.basicStat, uniqueValues(1));
   fillSelect(elements.upgrade, uniqueValues(2));
   fillSelect(elements.category, uniqueValues(4));
-  fillSelect(elements.job, uniqueValues(5));
+  fillSelect(elements.job, uniqueJobValues());
   fillSelect(elements.machine, uniqueMachineValues());
 }
 
@@ -139,6 +139,18 @@ function uniqueMachineValues() {
   return [...new Set(values)].sort(compareVietnamese);
 }
 
+function uniqueJobValues() {
+  const values = [];
+
+  allRows.forEach(row => {
+    splitJobs(row[5]).forEach(job => {
+      values.push(job);
+    });
+  });
+
+  return [...new Set(values)].sort(compareVietnamese);
+}
+
 function compareVietnamese(a, b) {
   return a.localeCompare(
     b,
@@ -155,7 +167,8 @@ function fillSelect(selectElement, values) {
 
   const allOption = document.createElement('option');
   allOption.value = '';
-  allOption.textContent = 'ALL';
+  allOption.textContent = '';
+  allOption.setAttribute('aria-label', 'Tất cả');
   selectElement.appendChild(allOption);
 
   values.forEach(value => {
@@ -189,6 +202,7 @@ function applyQuickFilter(chip) {
   }
 
   syncQuickChips();
+  syncSelectIcons();
   filterAndRender();
 }
 
@@ -221,6 +235,25 @@ function syncQuickChips() {
   });
 }
 
+function syncSelectIcons() {
+  [
+    elements.basicStat,
+    elements.upgrade,
+    elements.category,
+    elements.job,
+    elements.machine
+  ].forEach(select => {
+    const wrapper = select.closest('.select-wrapper');
+
+    if (!wrapper) return;
+
+    wrapper.classList.toggle(
+      'has-value',
+      String(select.value ?? '').trim() !== ''
+    );
+  });
+}
+
 function filterAndRender() {
   const filters = {
     itemName: normalize(elements.itemName.value),
@@ -237,7 +270,7 @@ function filterAndRender() {
     quickStatMatch(row[1], selectedQuickStat) &&
     exactMatch(row[2], filters.upgrade) &&
     exactMatch(row[4], filters.category) &&
-    exactMatch(row[5], filters.job) &&
+    jobMatch(row[5], filters.job) &&
     machineMatch(row[6], filters.machine)
   );
 
@@ -419,6 +452,7 @@ function toggleMachineFilter(machine) {
     : findRealOptionValue(elements.machine, machine);
 
   syncQuickChips();
+  syncSelectIcons();
   filterAndRender();
 }
 
@@ -441,6 +475,7 @@ function resetFilters(renderAfterReset = true) {
   selectedQuickStat = '';
 
   syncQuickChips();
+  syncSelectIcons();
 
   if (renderAfterReset) {
     filterAndRender();
@@ -482,12 +517,27 @@ function exactMatch(sourceValue, selectedValue) {
   return normalize(sourceValue) === selectedValue;
 }
 
+function jobMatch(sourceValue, selectedValue) {
+  if (!selectedValue) return true;
+
+  return splitJobs(sourceValue)
+    .map(normalize)
+    .includes(selectedValue);
+}
+
 function machineMatch(sourceValue, selectedValue) {
   if (!selectedValue) return true;
 
   return splitMachines(sourceValue)
     .map(normalize)
     .includes(selectedValue);
+}
+
+function splitJobs(value) {
+  return String(value ?? '')
+    .split(/[,;/|]+/)
+    .map(item => item.trim())
+    .filter(Boolean);
 }
 
 function splitMachines(value) {
