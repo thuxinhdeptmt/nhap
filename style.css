@@ -1169,77 +1169,196 @@ body::-webkit-scrollbar-corner,
 
 
 /* =========================================================
-   FIX LAYOUT
-   - Không có scrollbar của trình duyệt
-   - Bảng ít dòng sẽ co theo nội dung
-   - Bảng nhiều dòng sẽ cuộn
+   FIX CUỐI — TOÀN TRANG CỐ ĐỊNH, CHỈ BẢNG KẾT QUẢ ĐƯỢC CUỘN
    ========================================================= */
 
 html,
-body{
-    height:100%;
-    overflow:hidden;
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
-body{
-    margin:0;
+body {
+  margin: 0;
 }
 
-.page{
-    height:100vh;
-    overflow:hidden;
-    box-sizing:border-box;
+.page {
+  width: 100%;
+  height: 100vh;
+  min-height: 0;
+  padding: 18px 22px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.layout{
-    height:calc(100vh - 110px);
-    min-height:0;
-    overflow:hidden;
+.page-header {
+  flex: 0 0 auto;
+  margin-bottom: 14px;
 }
 
-.content{
-    height:100%;
-    min-height:0;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
+.layout {
+  flex: 1 1 auto;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+
+  overflow: hidden;
 }
 
-/* KHÔNG ép bảng giãn đầy như bản trước */
-.table-card{
-    flex:0 1 auto;
-    max-height:100%;
-    overflow:hidden;
+.sidebar {
+  position: static;
+  top: auto;
+
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
-.table-scroll{
-    max-height:calc(100vh - 235px);
-    overflow-y:auto;
-    overflow-x:hidden;
+.sidebar-body {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
-@media (max-width:900px){
-    html,body{
-        overflow:auto;
-        height:auto;
-    }
+.content {
+  min-width: 0;
+  min-height: 0;
 
-    .page{
-        height:auto;
-    }
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-    .layout{
-        height:auto;
-        overflow:visible;
-    }
+.content-header {
+  flex: 0 0 auto;
+}
 
-    .content{
-        overflow:visible;
-        height:auto;
-    }
+.table-card {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
 
-    .table-card,
-    .table-scroll{
-        max-height:none;
-    }
+.table-scroll {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Không cho thanh cuộn ngoài của trình duyệt xuất hiện */
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Giữ thanh cuộn riêng trong bảng kết quả */
+.table-scroll::-webkit-scrollbar {
+  width: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #9fb9ad;
+  background-clip: padding-box;
+
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #78c4a7;
+  background-clip: padding-box;
+}
+
+@media (max-width: 1200px) {
+  .page {
+    padding: 12px;
+  }
+
+  .layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow: auto;
+  }
+
+  .page {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .layout {
+    display: block;
+    overflow: visible;
+  }
+
+  .sidebar,
+  .sidebar-body,
+  .content,
+  .table-card {
+    height: auto;
+    overflow: visible;
+  }
+
+  .table-scroll {
+    height: auto;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+}
+
+
+/* =========================================================
+   THU NHỎ 4 NÚT TÌM NHANH
+   ========================================================= */
+
+.sidebar-footer-card .quick-filter {
+  margin-top: 9px;
+  padding-top: 8px;
+}
+
+.quick-filter-title {
+  margin-bottom: 6px;
+}
+
+.quick-group {
+  gap: 5px;
+}
+
+.quick-chip,
+.quick-chip-name {
+  min-height: 21px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 9px;
+  line-height: 1.1;
+}
+
+/* Chừa thêm một khoảng nhỏ phía dưới card */
+.sidebar-footer-card {
+  padding-bottom: 8px;
 }
