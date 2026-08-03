@@ -818,32 +818,6 @@ body {
   isolation: isolate;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjgwIiB2aWV3Qm94PSIwIDAgMzYwIDI4MCI+CiAgPGcgb3BhY2l0eT0iLjE4Ij4KICAgIDxnIGZpbGw9IiM3YmM4YWEiPgogICAgICA8cmVjdCB4PSIzNCIgeT0iNDgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz4KICAgICAgPHJlY3QgeD0iMzAiIHk9IjUyIiB3aWR0aD0iMTIiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIzNCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIi8+CiAgICAgIDxyZWN0IHg9IjI4IiB5PSI1OCIgd2lkdGg9IjYiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIzOCIgeT0iNTgiIHdpZHRoPSI2IiBoZWlnaHQ9IjQiLz4KICAgICAgPHJlY3QgeD0iMzQiIHk9IjY2IiB3aWR0aD0iNCIgaGVpZ2h0PSI2Ii8+CiAgICA8L2c+CgogICAgPGcgZmlsbD0iI2YyYjg0YiI+CiAgICAgIDxyZWN0IHg9IjI3MiIgeT0iMzgiIHdpZHRoPSIzIiBoZWlnaHQ9IjkiLz4KICAgICAgPHJlY3QgeD0iMjY5IiB5PSI0MSIgd2lkdGg9IjkiIGhlaWdodD0iMyIvPgogICAgICA8cmVjdCB4PSIyNzEiIHk9IjQwIiB3aWR0aD0iNSIgaGVpZ2h0PSI1Ii8+CiAgICA8L2c+CgogICAgPGcgZmlsbD0iI2VhYTdiYiI+CiAgICAgIDxyZWN0IHg9IjI5OCIgeT0iMTg4IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICAgIDxyZWN0IHg9IjMwNiIgeT0iMTk4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjI4NiIgeT0iMjEyIiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICA8L2c+CgogICAgPGcgZmlsbD0iIzlmYzllZiI+CiAgICAgIDxyZWN0IHg9IjEwNCIgeT0iMjA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjExMiIgeT0iMjE2IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICAgIDxyZWN0IHg9IjkyIiB5PSIyMjYiIHdpZHRoPSIzIiBoZWlnaHQ9IjMiLz4KICAgIDwvZz4KCiAgICA8ZyBmaWxsPSIjZjJiODRiIj4KICAgICAgPHJlY3QgeD0iMTg0IiB5PSIxMjYiIHdpZHRoPSIzIiBoZWlnaHQ9IjciLz4KICAgICAgPHJlY3QgeD0iMTgyIiB5PSIxMjgiIHdpZHRoPSI3IiBoZWlnaHQ9IjMiLz4KICAgIDwvZz4KCiAgICA8ZyBmaWxsPSIjNzhjNGE3Ij4KICAgICAgPHJlY3QgeD0iMzMwIiB5PSI5MCIgd2lkdGg9IjMiIGhlaWdodD0iMyIvPgogICAgICA8cmVjdCB4PSIxOCIgeT0iMjM2IiB3aWR0aD0iMyIgaGVpZ2h0PSIzIi8+CiAgICAgIDxyZWN0IHg9IjIyNiIgeT0iMjQ0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=");
-  background-repeat: repeat;
-  background-size: 360px 280px;
-  background-position: 0 0;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCIgdmlld0JveD0iMCAwIDE2MDAgOTAwIj4KICA8ZyBvcGFjaXR5PSIuMDg1Ij4KICAgIDxnIGZpbGw9IiM3OGM0YTciIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM0IDExMCkgc2NhbGUoMi4yKSI+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSI4Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjQiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjIiIHk9IjgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjEyIiB3aWR0aD0iMTIiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIi8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZjJiODRiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNTEwIDcyKSBzY2FsZSgyKSI+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjE2Ii8+CiAgICAgIDxyZWN0IHg9IjAiIHk9IjYiIHdpZHRoPSIxNiIgaGVpZ2h0PSI0Ii8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjZWFhN2JiIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDgwIDc4MCkgc2NhbGUoMS44KSI+CiAgICAgIDxyZWN0IHg9IjEwIiB5PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSI4Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjQiIHdpZHRoPSIxMiIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjIiIHk9IjgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0Ii8+CiAgICAgIDxyZWN0IHg9IjYiIHk9IjEyIiB3aWR0aD0iMTIiIGhlaWdodD0iNCIvPgogICAgICA8cmVjdCB4PSIxMCIgeT0iMTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIi8+CiAgICA8L2c+CiAgICA8ZyBmaWxsPSIjOWZjOWVmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1OCA4MTApIHNjYWxlKDEuOCkiPgogICAgICA8cmVjdCB4PSI2IiB5PSIwIiB3aWR0aD0iNCIgaGVpZ2h0PSIxNiIvPgogICAgICA8cmVjdCB4PSIwIiB5PSI2IiB3aWR0aD0iMTYiIGhlaWdodD0iNCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-
 .sidebar {
   overflow: visible;
   background: transparent;
@@ -1099,70 +1073,192 @@ body::after {
 
 
 /* =========================================================
-   MAPLE UPDATE — THUMB THANH CUỘN HÌNH LÁ PHONG
+   MAPLE FIX — NỀN LÁ PHONG VÀ THANH CUỘN GIẢ LÁ PHONG
    ========================================================= */
 
-html {
-  scrollbar-width: thin;
-  scrollbar-color: #78c4a7 transparent;
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--page-background);
 }
 
-body::-webkit-scrollbar,
-.table-scroll::-webkit-scrollbar {
-  width: 15px;
-  height: 15px;
+/* Lá phong nhỏ rải thưa, nhìn rõ là lá chứ không phải dấu cộng */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E"),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M16%201l3%2011%2012%204-12%204-3%2011-3-11L1%2016l12-4z%22%2F%3E%0A%3C%2Fsvg%3E"),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E"),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M16%201l3%2011%2012%204-12%204-3%2011-3-11L1%2016l12-4z%22%2F%3E%0A%3C%2Fsvg%3E");
+
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+
+  background-size:
+    34px 38px,
+    18px 18px,
+    27px 30px,
+    13px 13px;
+
+  background-position:
+    18px 105px,
+    18% 8%,
+    calc(100% - 34px) calc(100% - 42px),
+    74% 7%;
+
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,.8));
+
+  opacity: .13;
 }
 
-body::-webkit-scrollbar-track,
-.table-scroll::-webkit-scrollbar-track {
-  background: transparent;
+/* Pattern phụ: các lá phong nhỏ rải đều nhưng rất nhạt */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E"),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M16%201l3%2011%2012%204-12%204-3%2011-3-11L1%2016l12-4z%22%2F%3E%0A%3C%2Fsvg%3E");
+
+  background-repeat: repeat;
+  background-size:
+    170px 190px,
+    210px 210px;
+  background-position:
+    8px 22px,
+    72px 58px;
+
+  opacity: .035;
 }
 
-body::-webkit-scrollbar-thumb,
-.table-scroll::-webkit-scrollbar-thumb {
-  min-height: 34px;
-  border: 0;
-  border-radius: 0;
-
-  background-color: #78c4a7;
-  background-image: none;
-  background-clip: border-box;
-
-  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDE4IDI0Ij4KICA8cGF0aCBmaWxsPSIjMDAwIiBkPSJNOSAwLjggMTEuMSA1bDMuNy0xLjctMS40IDQuMiAzLjggMS4xLTMuMiAyLjUgMi4yIDMuMS00LjQtLjMtLjkgNC4xLTEuOS0yLjhMNy4xIDE4bC0uOS00LjEtNC40LjNMNCAxMS4xLjggOC42bDMuOC0xLjEtMS40LTQuMkw2LjkgNSA5IC44Wm0tLjggMTUuN2gxLjZ2Ni43SDguMnoiLz4KPC9zdmc+");
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: 14px 20px;
-
-  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDE4IDI0Ij4KICA8cGF0aCBmaWxsPSIjMDAwIiBkPSJNOSAwLjggMTEuMSA1bDMuNy0xLjctMS40IDQuMiAzLjggMS4xLTMuMiAyLjUgMi4yIDMuMS00LjQtLjMtLjkgNC4xLTEuOS0yLjhMNy4xIDE4bC0uOS00LjEtNC40LjNMNCAxMS4xLjggOC42bDMuOC0xLjEtMS40LTQuMkw2LjkgNSA5IC44Wm0tLjggMTUuN2gxLjZ2Ni43SDguMnoiLz4KPC9zdmc+");
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: 14px 20px;
-
-  transition:
-    background-color 0.16s ease,
-    transform 0.16s ease;
-}
-
-body::-webkit-scrollbar-thumb:hover,
-.table-scroll::-webkit-scrollbar-thumb:hover {
-  background-color: #f2b84b;
-}
-
-body::-webkit-scrollbar-corner,
-.table-scroll::-webkit-scrollbar-corner {
-  background: transparent;
-}
-
-@media (max-width: 620px) {
-  body::-webkit-scrollbar,
-  .table-scroll::-webkit-scrollbar {
-    width: 13px;
-    height: 13px;
+/* Ẩn scrollbar gốc trên desktop, vẫn cuộn bằng chuột/touchpad */
+@media (pointer: fine) {
+  html,
+  body,
+  .table-scroll {
+    scrollbar-width: none;
   }
 
-  body::-webkit-scrollbar-thumb,
-  .table-scroll::-webkit-scrollbar-thumb {
-    -webkit-mask-size: 12px 18px;
-    mask-size: 12px 18px;
+  body::-webkit-scrollbar,
+  .table-scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Scrollbar giả của toàn trang */
+.page-leaf-scrollbar {
+  position: fixed;
+  top: 10px;
+  right: 4px;
+  bottom: 10px;
+  z-index: 9999;
+  width: 20px;
+  pointer-events: none;
+}
+
+.page-leaf-scrollbar-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(120, 196, 167, .07);
+}
+
+.page-leaf-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 19px;
+  height: 28px;
+  transform: translateX(-50%);
+  cursor: grab;
+  pointer-events: auto;
+
+  background: #78c4a7;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E") center / contain no-repeat;
+
+  filter: drop-shadow(0 2px 3px rgba(47, 143, 111, .22));
+  transition:
+    background-color .16s ease,
+    filter .16s ease;
+}
+
+.page-leaf-scrollbar-thumb:hover {
+  background: #f2b84b;
+  filter: drop-shadow(0 3px 5px rgba(242, 184, 75, .28));
+}
+
+.page-leaf-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+/* Scrollbar giả riêng cho bảng */
+.table-card {
+  position: relative;
+}
+
+.table-leaf-scrollbar {
+  position: absolute;
+  top: 7px;
+  right: 3px;
+  bottom: 7px;
+  z-index: 20;
+  width: 18px;
+  pointer-events: none;
+}
+
+.table-leaf-scrollbar-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgba(120, 196, 167, .06);
+}
+
+.table-leaf-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 17px;
+  height: 25px;
+  transform: translateX(-50%);
+  cursor: grab;
+  pointer-events: auto;
+
+  background: #78c4a7;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2072%22%3E%0A%20%20%3Cpath%20fill%3D%22%23000%22%20d%3D%22M32%202l7%2015%2012-6-5%2015%2014%204-12%209%208%2011-17-2-3%2015-4-7-4%207-3-15-17%202%208-11L4%2030l14-4-5-15%2012%206%207-15z%22%2F%3E%0A%20%20%3Crect%20x%3D%2229%22%20y%3D%2254%22%20width%3D%226%22%20height%3D%2216%22%20rx%3D%222%22%20fill%3D%22%23000%22%2F%3E%0A%3C%2Fsvg%3E") center / contain no-repeat;
+
+  filter: drop-shadow(0 2px 3px rgba(47, 143, 111, .2));
+  transition:
+    background-color .16s ease,
+    filter .16s ease;
+}
+
+.table-leaf-scrollbar-thumb:hover {
+  background: #f2b84b;
+  filter: drop-shadow(0 3px 5px rgba(242, 184, 75, .28));
+}
+
+.table-leaf-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+@media (pointer: coarse), (max-width: 900px) {
+  .page-leaf-scrollbar,
+  .table-leaf-scrollbar {
+    display: none;
   }
 }
